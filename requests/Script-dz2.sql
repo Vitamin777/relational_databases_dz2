@@ -13,3 +13,15 @@ SHOW GRANTS FOR 'sys_temp'@'%';
 ALTER USER 'sys_temp'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
 
 #Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.Задание № 3*.1
+GRANT ALL PRIVILEGES ON sakila.* TO 'sys_temp'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+REVOKE INSERT ON sakila.* FROM 'sys_temp'@'%';
+REVOKE ALTER ON sakila.* FROM 'sys_temp'@'%';
+REVOKE DELETE ON sakila.* FROM 'sys_temp'@'%';
+REVOKE CREATE ON sakila.* FROM 'sys_temp'@'%';
+REVOKE DROP ON sakila.* FROM 'sys_temp'@'%';
+REVOKE UPDATE ON sakila.* FROM 'sys_temp'@'%';
+FLUSH PRIVILEGES;
+
+SHOW GRANTS FOR 'sys_temp'@'%';
